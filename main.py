@@ -11,7 +11,12 @@ def index():
 @app.route("/alumnos2", methods=["GET", "POST"])
 def alumnos2():
   alumno_clase=forms.UserForm(request.form)
-  if request.method=="POST":
+  nom=""
+  apa=""
+  ama=""
+  edad=""
+  email=""
+  if request.method=="POST" and alumno_clase.validate():
     nom=alumno_clase.nombre.data
     apa=alumno_clase.apaterno.data
     ama=alumno_clase.amaterno.data
